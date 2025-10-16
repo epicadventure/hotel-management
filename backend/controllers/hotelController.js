@@ -22,10 +22,12 @@ export const registerHotel = async (req, res) => {
 
         const newHotel = await Hotel.create({ name, address, contact, city, owner });
         await User.findByIdAndUpdate(owner, { role: "hotelOwner" });
+        console.log("registerHotel body:", req.body);
+
 
         res.status(201).json({
             success: true,
-            message: "Hotel registered successfully",
+            message: "Hotel registered successfully !!",
             hotel: newHotel,
         });
 

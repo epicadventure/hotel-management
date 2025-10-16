@@ -26,6 +26,8 @@ export const AppProvider = ({ children }) => {
     const fetchUser = async () => {
         try {
             const token = await getToken();
+            console.log("Token !!!! ",token);
+            
             if (!token) return;
 
             const { data } = await axios.get("/api/user", {
