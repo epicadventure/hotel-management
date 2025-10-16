@@ -1,16 +1,32 @@
 // GET /api/user/
+// export const getUserData = async (req, res) => {
+//     try {
+//         const role = req.user.role;
+//         const recentSearchedCities = req.user.recentSearchedCities;
+//         res.json(
+//             { success: true, role, recentSearchedCities }
+//         )
+//     } catch (error) {
+//         res.json({ error: error.message, success: false });
+
+//     }
+// }
+
 export const getUserData = async (req, res) => {
     try {
+        if (!req.user) {
+            return res.status(401).json({ success: false, error: "User not authenticated" });
+        }
+
         const role = req.user.role;
         const recentSearchedCities = req.user.recentSearchedCities;
-        res.json(
-            { success: true, role, recentSearchedCities }
-        )
+
+        res.json({ success: true, role, recentSearchedCities });
     } catch (error) {
         res.json({ error: error.message, success: false });
-
     }
 }
+
 
 //store User Recent Search Cities
 export const storeUserRecentSearchCities = async (req, res) => {

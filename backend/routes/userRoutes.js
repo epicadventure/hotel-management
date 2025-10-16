@@ -4,7 +4,7 @@ import protect from "../middleware/authMiddleware.js";
 
 const userRouter = express.Router();
 
-userRouter.get('/', getUserData);
+userRouter.get('/',protect, getUserData);
 userRouter.post('/store-recent-search',protect,storeUserRecentSearchCities);
 
 export default userRouter;
