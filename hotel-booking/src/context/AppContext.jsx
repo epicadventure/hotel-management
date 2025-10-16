@@ -30,7 +30,7 @@ export const AppProvider = ({ children }) => {
             if(!token) return;
             console.log("Token",token);
             
-            const {data} = await axios.get("/api/users", {
+            const {data} = await axios.get("/api/user", {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
