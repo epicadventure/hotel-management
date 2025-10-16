@@ -32,7 +32,7 @@ app.use("/api/bookings", bookingRouter);
 
 // Routes
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello World!!!!!!!");
 });
 
 // Start server
