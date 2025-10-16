@@ -55,6 +55,8 @@ export const AppProvider = ({ children }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]);
 
+    
+
     const value = useMemo(() => ({
         currency,
         isOwner,
